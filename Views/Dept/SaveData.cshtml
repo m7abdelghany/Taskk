@@ -1,0 +1,103 @@
+﻿@model Taskk.modelview.debtmodelView
+<body>
+    <form method="post">
+    <div class="container" style="align-content:center ; width:100% ">
+
+        <div class="container" style="width:50% ; border:3px solid #f00">
+            <label>ادارة السلف</label><br />
+            <div>
+                <label>نوع المستند</label> <br />
+                <select id="نوع المستند" asp-for="TypeOfEvd">
+                    <option value="كلاهما">كلاهما</option>
+                    <option value="نقدى">نقدى</option>
+                    <option value="شيكات">شيكات</option>
+                </select>
+            </div>
+            <div>
+                <label>الدائرة</label> <br />
+                <select id="الدائرة" asp-for="Location">
+                    <option value="alex">alex</option>
+                    <option value="cairo">cairo</option>
+                    <option value="geza">geza</option>
+                </select>
+            </div>
+            <div>
+                <label>نوع السلفة</label> <br />
+                <select id="نوع السلفة" asp-for="TypeOfDept">
+                    <option value="كلاهما">كلاهما</option>
+                    <option value="نقدى">نقدى</option>
+                    <option value="شيكات">شيكات</option>
+                </select>
+            </div>
+            <div>
+                <label>المحاسب</label> <br />
+                <select id="نوع المستند" asp-for="AcountantName">
+                    <option value="احمد">احمد</option>
+                    <option value="محمد">محمد</option>
+                    <option value="حسام">حسام</option>
+                </select>
+            </div>
+            <div>
+                <labbel>رقم السلفة</labbel> <br />
+                <input type="number" asp-for="NumberOfDebt" />
+            </div>
+            <div>
+                <label>التاريخ</label> <br />
+                <input type="date" asp-for="Date" />
+            </div>
+            <div>
+                <label>تاريخ الادخال</label><br />
+                <input type="date" asp-for="DateNow"/>
+            </div>
+            <div>
+                <label>الجهة المدفوع لها</label><br />
+                <input type="text" asp-for="PaidForWho" />
+            </div>
+                <div>
+                    <label>اجمالى مبلغ السلف</label><br />
+                    <input type="text" asp-for="TotalDebtValue" />
+                </div>
+        </div>
+        <div class="container" style="width:50% ; border:3px solid #f00">
+            <label>مدين (حساب السلفة )</label><br />
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">اسم الحساب</th>
+                        <th scope="col">الغرض من السلفة</th>
+                        <th scope="col">المبلغ</th>
+                        <th scope="col">ملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                        <td><button class="btn btn-info">+</button><button class="btn btn-danger">-</button> </td>
+                        <td>
+                            <select id="AccountName" asp-for="AccountName">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" asp-for="Cause" />
+                        </td>
+                        <td>
+                            <input type="number" asp-for="Value" />
+                        </td>
+                        <td>
+                            <input type="text" asp-for="Notes" />
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+        <button asp-action="SaveData">submit</button>
+    </form>
+
+</body>
