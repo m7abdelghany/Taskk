@@ -37,8 +37,9 @@ namespace Taskk.Repositry
             Db.SaveChanges();
             return newDebtCalculation;
         }
-        public void delete(DebtCalculation debtCalculation)
+        public void delete(int Id)
         {
+            DebtCalculation debtCalculation = Db.debtCalculations.Find(Id);
             Db.debtCalculations.Remove(debtCalculation);
             Db.SaveChanges();
         }

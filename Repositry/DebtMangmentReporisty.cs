@@ -15,7 +15,7 @@ namespace Taskk.Repositry
         }
         public List<DebtMangment> getall()
         {
-            List<DebtMangment> debtMangments = Db.debtMangments.ToList();
+            List<DebtMangment> debtMangments = Db.debtMangments.Include(a=>a.DebtCalc).ToList();
             return debtMangments;
         }
         public DebtMangment getbyid(int id)
@@ -46,8 +46,9 @@ namespace Taskk.Repositry
             
             return newdebtmangment.DebtNumber;
         }
-        public void delete(DebtMangment debtMangment)
+        public void delete(int Id)
         {
+            DebtMangment debtMangment = Db.debtMangments.Find(Id);
             Db.debtMangments.Remove(debtMangment);
             Db.SaveChanges();
         }

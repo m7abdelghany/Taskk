@@ -7,6 +7,6 @@ namespace Taskk.Repositry
         List<DebtCalculation> getall();
         DebtCalculation getbyid(int id);
         DebtCalculation postdebt(DebtCalculation debtMangment);
-        void delete(DebtCalculation debtMangment);
+        void delete(int Id);
     }
 }

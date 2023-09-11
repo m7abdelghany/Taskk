@@ -1,103 +1,229 @@
-﻿@model Taskk.modelview.debtmodelView
-<body>
+﻿@model Taskk.modelview.DebtMangmentModelView
+
+<body dir="rtl">
     <form method="post">
-    <div class="container" style="align-content:center ; width:100% ">
-
-        <div class="container" style="width:50% ; border:3px solid #f00">
-            <label>ادارة السلف</label><br />
-            <div>
-                <label>نوع المستند</label> <br />
-                <select id="نوع المستند" asp-for="TypeOfEvd">
-                    <option value="كلاهما">كلاهما</option>
-                    <option value="نقدى">نقدى</option>
-                    <option value="شيكات">شيكات</option>
-                </select>
-            </div>
-            <div>
-                <label>الدائرة</label> <br />
-                <select id="الدائرة" asp-for="Location">
-                    <option value="alex">alex</option>
-                    <option value="cairo">cairo</option>
-                    <option value="geza">geza</option>
-                </select>
-            </div>
-            <div>
-                <label>نوع السلفة</label> <br />
-                <select id="نوع السلفة" asp-for="TypeOfDept">
-                    <option value="كلاهما">كلاهما</option>
-                    <option value="نقدى">نقدى</option>
-                    <option value="شيكات">شيكات</option>
-                </select>
-            </div>
-            <div>
-                <label>المحاسب</label> <br />
-                <select id="نوع المستند" asp-for="AcountantName">
-                    <option value="احمد">احمد</option>
-                    <option value="محمد">محمد</option>
-                    <option value="حسام">حسام</option>
-                </select>
-            </div>
-            <div>
-                <labbel>رقم السلفة</labbel> <br />
-                <input type="number" asp-for="NumberOfDebt" />
-            </div>
-            <div>
-                <label>التاريخ</label> <br />
-                <input type="date" asp-for="Date" />
-            </div>
-            <div>
-                <label>تاريخ الادخال</label><br />
-                <input type="date" asp-for="DateNow"/>
-            </div>
-            <div>
-                <label>الجهة المدفوع لها</label><br />
-                <input type="text" asp-for="PaidForWho" />
-            </div>
-                <div>
-                    <label>اجمالى مبلغ السلف</label><br />
-                    <input type="text" asp-for="TotalDebtValue" />
-                </div>
-        </div>
-        <div class="container" style="width:50% ; border:3px solid #f00">
-            <label>مدين (حساب السلفة )</label><br />
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">اسم الحساب</th>
-                        <th scope="col">الغرض من السلفة</th>
-                        <th scope="col">المبلغ</th>
-                        <th scope="col">ملاحظات</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        
-                        <td><button class="btn btn-info">+</button><button class="btn btn-danger">-</button> </td>
-                        <td>
-                            <select id="AccountName" asp-for="AccountName">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+        <div class="container-fluid ">
+            <div class=" card mb-4" style="height:50%">
+                <h5 class="card-header ">ادارة السلف</h5>
+                <div className="card-body ">
+                    <div class="row  p-3 ">
+                        <div class="col-3 form-group">
+                            <label class="mb-2">نوع المستند</label>
+                            <select class="form-control" id="typeOfEvd">
+                                <option value="كلاهما">كلاهما</option>
+                                <option value="نقدى">نقدى</option>
+                                <option value="شيكات">شيكات</option>
                             </select>
-                        </td>
-                        <td>
-                            <input type="text" asp-for="Cause" />
-                        </td>
-                        <td>
-                            <input type="number" asp-for="Value" />
-                        </td>
-                        <td>
-                            <input type="text" asp-for="Notes" />
-                        </td>
-                    </tr>
+                        </div>
+                        <div class="col-3 form-group">
+                            <label class="mb-2">الدائرة</label>
+                            <select class="form-control" id="location">
+                                <option value="alex">alex</option>
+                                <option value="cairo">cairo</option>
+                                <option value="geza">geza</option>
+                            </select>
+                        </div>
+                        <div class="col-3 form-group mb-1">
+                            <label class="mb-2">نوع السلفة</label> <br />
+                            <select class="form-control" id="typeOfDept">
+                                <option value="كلاهما">كلاهما</option>
+                                <option value="نقدى">نقدى</option>
+                                <option value="شيكات">شيكات</option>
+                            </select>
+                        </div>
+                        <div class="col-3 form-group mb-1">
+                            <label class="mb-2">المحاسب</label> <br />
+                            <select class="form-control" id="acountantName">
+                                <option value="احمد">احمد</option>
+                                <option value="محمد">محمد</option>
+                                <option value="حسام">حسام</option>
+                            </select>
+                        </div>
+                        <div class="col-3 form-group mb-1">
+                            <label class="mb-2">رقم السلفة</label> <br />
+                            <input class="form-control" id="numberOfDebt" type="number" />
+                        </div>
+                        <div class="col-3 form-group mb-1">
+                            <label class="mb-2">التاريخ</label> <br />
+                            <input class="form-control" id="Date" type="date" />
+                        </div>
+                        <div class="col-3 form-group mb-1">
+                            <label class="mb-2">تاريخ الادخال</label><br />
+                            <input class="form-control" id="dateNow" type="date" />
+                        </div>
+                        <div class="col-3 form-group mb-1">
+                            <label class="mb-2">الجهة المدفوع لها</label><br />
+                            <input class="form-control" id="paidForWho" type="text" />
+                        </div>
+                        <div class="col-3 form-group mb-1">
+                            <label class="mb-2">اجمالى مبلغ السلف</label><br />
+                            <input class="form-control" id="totalDebtValue" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" card " style="height:50%">
+                <div class="card-header ">
 
-                </tbody>
-            </table>
+                    <span class=" p-1 text-white rounded-2" style="background-color:crimson">
+
+                        مدين (حساب السلفة)
+                    </span>
+                </div>
+
+                <div className="card-body ">
+                    <div class="row  p-3 ">
+                        <table class="table table-bordered table-hover text-center" id="debtTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <div class=" add-row btn btn-info  w-100">+</div>
+                                    </th>
+                                    <th scope="col">اسم الحساب</th>
+                                    <th scope="col">الغرض من السلفة</th>
+                                    <th scope="col">المبلغ</th>
+                                    <th scope="col">ملاحظات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="d-flex justify-content-around form-group">
+                                        <div class="btn btn-danger remove-row w-100">-</div>
+                                    </td>
+
+                                    <td class="form-group">
+
+                                        <select class="form-control" id="accountName">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </td>
+                                    <td class="form-group">
+                                        <input class="form-control" type="text" id="Cause" />
+                                    </td>
+                                    <td class="form-group">
+                                        <input class="form-control" type="number" id="Value" />
+                                    </td>
+                                    <td class="form-group">
+                                        <input class="form-control" type="text" id="Notes" />
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <button class="m-auto btn p-2 mb-3 text-white" id="btnClick" style="background-color:crimson; width:15%">submit</button>
+            </div>
         </div>
-
-    </div>
-        <button asp-action="SaveData">submit</button>
     </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let date = new Date();
+            let inputDate = document.getElementById("Date");
+            inputDate.valueAsDate = date;
+            console.log(date);
+            $("table").on("click", ".remove-row", function () {
+                if ($('tbody tr').length > 1) {
+                    $(this).closest("tr").remove();
+                }
+            });
 
+            $(".add-row").click(function () {
+                $('tbody').append(`
+                                                    <tr>
+                                                        <td class="d-flex justify-content-around form-group">
+                                                            <div class="remove-row btn btn-danger w-100">-</div>
+                                                        </td>
+                                                        <td class="form-group">
+                                                            <select class="form-control" id="accountName">
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                            </select>
+                                                        </td>
+                                                        <td class="form-group">
+                                                            <input class="form-control" type="text" id="Cause" />
+                                                        </td>
+                                                        <td class="form-group">
+                                                            <input class="form-control" type="number" id="Value" />
+                                                        </td>
+                                                        <td class="form-group">
+                                                            <input class="form-control" type="text" id="Notes" />
+                                                        </td>
+                                                    </tr>`);
+            });
+        });
+
+        let BtnClick = document.getElementById("btnClick");
+        BtnClick.addEventListener("click", function (e) {
+            e.preventDefault();
+            var TypeOfEvd = $("#typeOfEvd").val();
+            var Location = $("#location").val();
+            var TypeOfDept = $("#typeOfDept").val();
+            var AcountantName = $("#acountantName").val();
+            var NumberOfDebt = $("#numberOfDebt").val();
+            var Date = $("#Date").val();
+            var DateNow = $("#dateNow").val();
+            var PaidForWho = $("#paidForWho").val();
+            var TotalDebtValue = $("#totalDebtValue").val();
+            let debtCalc = []
+            let dataTable = document.getElementById("debtTable");
+            for (let i = 1; i < dataTable.rows.length; i++) {
+                let row = dataTable.rows[i];
+                let debtcalculations = {
+                    AccountName: row.cells[1].querySelector("select").value,
+                    Cause: row.cells[2].querySelector("input").value,
+                    Value: row.cells[3].querySelector("input").value,
+                    Notes: row.cells[4].querySelector("input").value
+                };
+                debtCalc.push(debtcalculations)
+                console.log(debtcalculations);
+            }
+
+            var obj = {
+                DebtNumber:0 ,
+                Date: Date,
+                DateNow: DateNow,
+                TotalDebtValue: TotalDebtValue,
+                PaidForWho: PaidForWho,
+                TypeOfEvd: TypeOfEvd,
+                Location: Location,
+                TypeOfDept: TypeOfDept,
+                NumberOfDebt: NumberOfDebt,
+                AcountantName: AcountantName,
+                DebtCalc: debtCalc
+                
+                
+                
+            };
+            submitFirm(obj);
+            console.log(obj);
+
+        });
+
+        function submitFirm(obj) {
+            $.ajax({
+                url: "SaveData",
+                method: "POST",
+                data: JSON.stringify(obj),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    
+                },
+                error: function (err) {
+                    
+                }
+            });
+        }
+    </script>
 </body>
+
+
+
+
+
+

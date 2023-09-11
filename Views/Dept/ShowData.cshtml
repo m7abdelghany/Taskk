@@ -1,0 +1,112 @@
+﻿@model List<Taskk.modelview.DebtMangmentModelView>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+
+      <th scope="col">Debt Number</th>
+      <th scope="col">date</th>
+      <th scope="col">date of entry</th>
+      <th scope="col">total debt value</th>
+      <th scope="col">paid for who</th>
+      <th scope="col">type of evd</th>
+      <th scope="col">location</th>
+      <th scope="col">TypeOfDept</th>
+      <th scope="col">Number Of Debts</th>
+      <th scope="col">AcountantName</th>
+      <th scope="col">preform action</th>
+
+
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+        @foreach (var item in Model)
+        {
+                        <tr>
+
+                <td>@item.DebtNumber</td>
+                <td>@item.Date</td>
+                <td>@item.DateNow</td>
+                <td>@item.TotalDebtValue</td>
+                <td>@item.PaidForWho</td>
+                <td>@item.TypeOfEvd</td>
+                <td>@item.Location</td>
+                <td>@item.TypeOfDept</td>
+                <td>@item.NumberOfDebt</td>
+                <td>@item.AcountantName</td>
+
+                    
+                    <td>
+                    <a asp-action="DeleteParent" asp-route-Id="@item.DebtNumber" class="btn btn-danger">delete</a>
+                    
+                    
+                    </td>
+                    <td>
+                    
+                    
+                    </td>
+                </tr>
+        }
+
+
+  </tbody>
+</table>
+<hr />
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+
+      
+      <th scope="col">ID</th>
+      <th scope="col">Account name</th>
+      <th scope="col">Cause of Debt</th>
+      <th scope="col">Value of Debt</th>
+      <th scope="col">Notes on Debt</th>
+      <th scope="col">preform action</th>
+      
+
+
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+        @foreach (var item in Model)
+        {
+            foreach (var item2 in item.DebtCalc)
+            {
+
+
+                <tr>
+
+                <td>@item2.DebtCalulationId</td>
+                <td>@item2.AccountName</td>
+                <td>@item2.Cause</td>
+                <td>@item2.Value</td>
+                <td>@item2.Notes</td>
+                
+
+                    <td>
+                    
+                        <a asp-action="DeleteChild" asp-route-Id="@item2.DebtCalulationId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+              }  
+        }
+
+
+  </tbody>
+</table>
